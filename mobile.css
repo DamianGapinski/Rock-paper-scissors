@@ -125,6 +125,7 @@ main{
     transform: translate(-50%,-50%);
     border: 15px solid royalblue;
 }
+
 .rock{
     bottom: 0;
     left: 50%;
@@ -145,11 +146,21 @@ main{
     justify-content: space-between;
     align-items: center;
     background-color: red;
+
 }
 
-.user{
+.user,.house{
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: royalblue;
+}
+
+.gameText{
+    color: var(--light-color);
 }
 
 .rulesButton{
