@@ -1,0 +1,166 @@
+@media only screen and (max-width: 1366px)  {
+    @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+:root {
+    --bg-grad1: #1f3756;
+    --bg-grad2: #141539;
+    --light-color: #ffffff; 
+    --dark-text: hsl(229, 25%, 31%);
+    --out-line: hsl(217, 16%, 45%);
+    --score-text:hsl(229, 64%, 46%);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   background: radial-gradient(at top, var(--bg-grad1), var(--bg-grad2)); 
+    font-family: "Barlow Semi Condensed", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.rules{
+    position: absolute;
+    background-color: var(--light-color);
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+.rules h1{
+    color: var(--dark-text);
+}
+
+.rulesClose button{
+    border: none;
+    background: none;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 150px;
+    border: 5px solid var(--out-line);
+    border-radius: 10px;
+}
+
+.logo,.scores{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    height: 120px;
+    height: 70px;
+}
+
+.scores{
+    width: 100px;
+    height: 100px;
+    background-color: var(--light-color);
+    border:1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.scoreText{
+    color: var(--score-text);
+    font-size: .75rem;
+}
+.score{
+    color: var(--dark-text);
+    text-align: center;
+    font-size: 3rem;
+}
+
+.choice{
+    background-image: url('./images/bg-triangle.svg');
+    background-size: cover;
+    width: 220px;
+    height: 200px;
+    position: relative;
+}
+
+.paper,.scissors,.rock{
+    background-color: var(--light-color);
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+    
+    
+}
+.paper{
+    top: 10px;
+    left: 10px;
+    transform: translate(-50%,-50%);
+    border: 15px solid royalblue;
+}
+.rock{
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border: 15px solid red;
+}
+.scissors{
+    top: 10px;
+    right: 10px;
+    transform: translate(50%,-50%);
+    border: 15px solid yellow;
+}
+
+.game{
+    width: 80%;
+    height: 300px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+}
+
+.user{
+    width: 50%;
+    height: 100%;
+}
+
+.rulesButton{
+    width: 150px;
+    height: 50px;
+    border: 3px solid var(--out-line);
+    color: var(--light-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+}
