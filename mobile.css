@@ -145,7 +145,6 @@ main{
     display: none;
     justify-content: space-between;
     align-items: center;
-    background-color: red;
 
 }
 
@@ -154,14 +153,25 @@ main{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: royalblue;
+}
+
+.housePick{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--dark-text);
+    opacity: .5;
 }
 
 .gameText{
     color: var(--light-color);
+    width: 100%;
+    text-align: center;
 }
+
+
 
 .rulesButton{
     width: 150px;
@@ -172,6 +182,37 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.userShapePaper{
+    background-color: var(--light-color);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 15px solid royalblue;
+}
+.userShapeScissors{
+    background-color: var(--light-color);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 15px solid yellow;
+}
+.userShapeRock{
+    background-color: var(--light-color);
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 15px solid red;
 }
 
 }

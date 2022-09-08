@@ -8,31 +8,7 @@ const rock = document.querySelector('.rock')
 
 const choice = document.querySelector('.choice')
 const game = document.querySelector('.game')
-
-let userChoice = '';
-
-paper.addEventListener('click', () => {
-    userChoice = 'paper'
-    console.log(userChoice)
-    choice.style.display = 'none'
-    game.style.display = 'flex'
-
-})
-
-scissors.addEventListener('click', () => {
-    userChoice = 'scissors'
-    console.log(userChoice)
-    choice.style.display = 'none'
-    game.style.display = 'flex'
-})
-
-rock.addEventListener('click', () => {
-    userChoice = 'rock'
-    console.log(userChoice)
-    choice.style.display = 'none'
-    game.style.display = 'flex'
-})
-
+const userPick = document.querySelector('.userPick')
 
 rulesClose.addEventListener('click', () => {
     rules.style.display = 'none';
@@ -41,3 +17,39 @@ rulesClose.addEventListener('click', () => {
 rulesButton.addEventListener('click', () => {
     rules.style.display = 'flex'
 })
+
+let userChoice = '';
+
+
+
+paper.addEventListener('click', () => {
+    userChoice = 'paper'
+    console.log(userChoice)
+    choice.style.display = 'none'
+    game.style.display = 'flex'
+    userPick.classList.replace('userPick', 'userShapePaper')
+    const userShapePaper = document.querySelector('.userShapePaper')
+    userShapePaper.innerHTML = '<img class="paperIcon" src="./images/icon-paper.svg">'
+})
+
+scissors.addEventListener('click', () => {
+    userChoice = 'scissors'
+    console.log(userChoice)
+    choice.style.display = 'none'
+    game.style.display = 'flex'
+    userPick.classList.replace('userPick', 'userShapeScissors')
+    const userShapeScissors = document.querySelector('.userShapeScissors')
+    userShapeScissors.innerHTML = '<img class="ScissorsIcon" src="./images/icon-scissors.svg">'
+})
+
+rock.addEventListener('click', () => {
+    userChoice = 'rock'
+    console.log(userChoice)
+    choice.style.display = 'none'
+    game.style.display = 'flex'
+    userPick.classList.replace('userPick', 'userShapeRock')
+    const userShapeRock = document.querySelector('.userShapeRock')
+    userShapeRock.innerHTML = '<img class="rockIcon" src="./images/icon-rock.svg">'
+})
+
+
