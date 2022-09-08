@@ -27,25 +27,31 @@ rulesButton.addEventListener('click', () => {
 
 let score = 0;
 let userChoice = '';
+let choiceNr = null;
+
+const iconPaper = '<img class="paperIcon" src="./images/icon-paper.svg">';
+const iconScissors = '<img class="scissorsIcon" src="./images/icon-scissors.svg">';
+const iconRock = '<img class="rockIcon" src="./images/icon-rock.svg">';
+
 
 console.log(score)
 
 const gameRunPaper = () => {
     setTimeout(() => {
         //const choices = ['paper', 'scissors', 'rock']
-        let choiceNr = Math.floor(Math.random() * 3)
+        choiceNr = Math.floor(Math.random() * 3)
         console.log(choiceNr)
         if (choiceNr === 0) {
             housePick.classList.replace('housePick', 'houseShapePaper')
             const houseShapePaper = document.querySelector('.houseShapePaper')
-            houseShapePaper.innerHTML = '<img class="paperIcon" src="./images/icon-paper.svg">'
+            houseShapePaper.innerHTML = iconPaper
             result.style.opacity = '1'
             resultText.innerHTML = '<h1>DRAW</h1>'
         }
         else if (choiceNr === 1) {
             housePick.classList.replace('housePick', 'houseShapeScissors')
             const houseShapeScissors = document.querySelector('.houseShapeScissors')
-            houseShapeScissors.innerHTML = '<img class="paperIcon" src="./images/icon-scissors.svg">'
+            houseShapeScissors.innerHTML = iconScissors
             score = score - 1
             scoreNr.innerHTML = score
             result.style.opacity = '1'
@@ -54,12 +60,82 @@ const gameRunPaper = () => {
         else if (choiceNr === 2) {
             housePick.classList.replace('housePick', 'houseShapeRock')
             const houseShapeRock = document.querySelector('.houseShapeRock')
-            houseShapeRock.innerHTML = '<img class="paperIcon" src="./images/icon-rock.svg">'
+            houseShapeRock.innerHTML = iconRock
             score = score + 1
             scoreNr.innerHTML = score
             result.style.opacity = '1'
             resultText.innerHTML = '<h1>YOU WIN</h1>'
+            clearTimeout()
+        }
+    }, 2000)
 
+}
+
+const gameRunScissors = () => {
+    setTimeout(() => {
+        //const choices = ['paper', 'scissors', 'rock']
+        let choiceNr = Math.floor(Math.random() * 3)
+        console.log(choiceNr)
+        if (choiceNr === 0) {
+            housePick.classList.replace('housePick', 'houseShapePaper')
+            const houseShapePaper = document.querySelector('.houseShapePaper')
+            houseShapePaper.innerHTML = iconPaper
+            result.style.opacity = '1'
+            resultText.innerHTML = '<h1>YOU WIN</h1>'
+            score = score + 1
+            scoreNr.innerHTML = score
+        }
+        else if (choiceNr === 1) {
+            housePick.classList.replace('housePick', 'houseShapeScissors')
+            const houseShapeScissors = document.querySelector('.houseShapeScissors')
+            houseShapeScissors.innerHTML = iconScissors
+            result.style.opacity = '1'
+            resultText.innerHTML = '<h1>DROW</h1>'
+        }
+        else if (choiceNr === 2) {
+            housePick.classList.replace('housePick', 'houseShapeRock')
+            const houseShapeRock = document.querySelector('.houseShapeRock')
+            houseShapeRock.innerHTML = iconRock
+            score = score - 1
+            scoreNr.innerHTML = score
+            result.style.opacity = '1'
+            resultText.innerHTML = '<h1>YOU LOSE</h1>'
+            clearTimeout()
+        }
+    }, 2000)
+
+}
+
+const gameRunRock = () => {
+    setTimeout(() => {
+        //const choices = ['paper', 'scissors', 'rock']
+        let choiceNr = Math.floor(Math.random() * 3)
+        console.log(choiceNr)
+        if (choiceNr === 0) {
+            housePick.classList.replace('housePick', 'houseShapePaper')
+            const houseShapePaper = document.querySelector('.houseShapePaper')
+            houseShapePaper.innerHTML = iconPaper
+            result.style.opacity = '1'
+            resultText.innerHTML = '<h1>YOU LOSE</h1>'
+            score = score - 1
+            scoreNr.innerHTML = score
+        }
+        else if (choiceNr === 1) {
+            housePick.classList.replace('housePick', 'houseShapeScissors')
+            const houseShapeScissors = document.querySelector('.houseShapeScissors')
+            houseShapeScissors.innerHTML = iconScissors
+            result.style.opacity = '1'
+            resultText.innerHTML = '<h1>YOU WIN</h1>'
+            score = score + 1
+            scoreNr.innerHTML = score
+        }
+        else if (choiceNr === 2) {
+            housePick.classList.replace('housePick', 'houseShapeRock')
+            const houseShapeRock = document.querySelector('.houseShapeRock')
+            houseShapeRock.innerHTML = iconRock
+            result.style.opacity = '1'
+            resultText.innerHTML = '<h1>YOU DROW</h1>'
+            clearTimeout()
         }
     }, 2000)
 
@@ -76,7 +152,7 @@ paper.addEventListener('click', () => {
     result.style.display = 'flex'
     userPick.classList.replace('userPick', 'shapePaper')
     const shapePaper = document.querySelector('.shapePaper')
-    shapePaper.innerHTML = '<img class="paperIcon" src="./images/icon-paper.svg">'
+    shapePaper.innerHTML = iconPaper
     gameRunPaper()
 })
 
@@ -89,7 +165,8 @@ scissors.addEventListener('click', () => {
     result.style.display = 'flex'
     userPick.classList.replace('userPick', 'shapeScissors')
     const shapeScissors = document.querySelector('.shapeScissors')
-    shapeScissors.innerHTML = '<img class="ScissorsIcon" src="./images/icon-scissors.svg">'
+    shapeScissors.innerHTML = iconScissors
+    gameRunScissors()
 })
 
 rock.addEventListener('click', () => {
@@ -101,7 +178,28 @@ rock.addEventListener('click', () => {
     result.style.display = 'flex'
     userPick.classList.replace('userPick', 'shapeRock')
     const shapeRock = document.querySelector('.shapeRock')
-    shapeRock.innerHTML = '<img class="rockIcon" src="./images/icon-rock.svg">'
+    shapeRock.innerHTML = iconRock
+    gameRunRock()
 })
 
+resultBtn.addEventListener('click', () => {
+    let shapePaper = document.querySelector('.shapePaper')
+    const houseShapePaper = document.querySelector('.houseShapePaper')
+    //********* Tutaj koniec */
+    const shapeScissors = document.querySelector('.shapeScissors')
+    const houseShapeScissors = document.querySelector('.houseShapeScissors')
 
+    const shapeRock = document.querySelector('.shapeRock')
+    const houseShapeRock = document.querySelector('.houseShapePaper')
+
+
+
+    choice.style.display = 'flex'
+    rulesButton.style.display = 'flex'
+    game.style.display = 'none'
+    result.style.display = 'none'
+    shapePaper.innerHTML = 't'
+
+    houseShapePaper = 't'
+
+})
