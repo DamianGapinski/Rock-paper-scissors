@@ -94,3 +94,38 @@ rock.addEventListener('click', () => {
     }
 
 })
+
+paper.addEventListener('click', () => {
+
+    showGamePanel();
+    userPick.classList.replace('userPick', 'shapePaper')
+    const shapePaper = document.querySelector('.shapePaper')
+    shapePaper.innerHTML = iconPaper
+    let nr = Math.floor(Math.random() * possibilities.length)
+    console.log(nr)
+    if (nr === 0) {
+        housePick.classList.replace('housePick', 'houseShapeRock')
+        const houseShapeRock = document.querySelector('.houseShapeRock')
+        houseShapeRock.innerHTML = iconRock
+        showGamePanel()
+        resultText.innerHTML = '<h1>WIN</h1>'
+        scoreNr.innerHTML = score + 1
+    }
+    else if (nr === 1) {
+        housePick.classList.replace('housePick', 'houseShapeScissors')
+        const houseShapeScissors = document.querySelector('.houseShapeScissors')
+        houseShapeScissors.innerHTML = iconScissors
+        showGamePanel()
+        resultText.innerHTML = '<h1>YOU LOSE</h1>'
+        scoreNr.innerHTML = score - 1
+    }
+    else {
+        housePick.classList.replace('housePick', 'houseShapePaper')
+        const houseShapePaper = document.querySelector('.houseShapePaper')
+        houseShapePaper.innerHTML = iconPaper
+        showGamePanel()
+        resultText.innerHTML = '<h1>DROW</h1>'
+
+    }
+
+})
