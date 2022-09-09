@@ -26,6 +26,7 @@ rulesButton.addEventListener('click', () => {
 })
 
 let score = 0;
+let houseChoice = '';
 let userChoice = '';
 let choiceNr = null;
 
@@ -60,9 +61,9 @@ const showGamePanel = () => {
     result.style.opacity = '1'
 
 }
-
+//***************USER CHOICE**************** */
 rock.addEventListener('click', () => {
-
+    userChoice = 'rock'
     showGamePanel();
     userPick.classList.replace('userPick', 'shapeRock')
     const shapeRock = document.querySelector('.shapeRock')
@@ -70,6 +71,7 @@ rock.addEventListener('click', () => {
     let nr = Math.floor(Math.random() * possibilities.length)
     console.log(nr)
     if (nr === 0) {
+        houseChoice = 'rock'
         housePick.classList.replace('housePick', 'houseShapeRock')
         const houseShapeRock = document.querySelector('.houseShapeRock')
         houseShapeRock.innerHTML = iconRock
@@ -77,6 +79,7 @@ rock.addEventListener('click', () => {
         resultText.innerHTML = '<h1>ROW</h1>'
     }
     else if (nr === 1) {
+        houseChoice = 'scissors'
         housePick.classList.replace('housePick', 'houseShapeScissors')
         const houseShapeScissors = document.querySelector('.houseShapeScissors')
         houseShapeScissors.innerHTML = iconScissors
@@ -85,6 +88,7 @@ rock.addEventListener('click', () => {
         scoreNr.innerHTML = score + 1
     }
     else {
+        houseChoice = 'paper'
         housePick.classList.replace('housePick', 'houseShapePaper')
         const houseShapePaper = document.querySelector('.houseShapePaper')
         houseShapePaper.innerHTML = iconPaper
@@ -96,7 +100,7 @@ rock.addEventListener('click', () => {
 })
 
 paper.addEventListener('click', () => {
-
+    userChoice = 'paper'
     showGamePanel();
     userPick.classList.replace('userPick', 'shapePaper')
     const shapePaper = document.querySelector('.shapePaper')
@@ -131,7 +135,7 @@ paper.addEventListener('click', () => {
 })
 
 scissors.addEventListener('click', () => {
-
+    userChoice = 'scissors'
     showGamePanel();
     userPick.classList.replace('userPick', 'shapeScissors')
     const shapeScissors = document.querySelector('.shapeScissors')
@@ -161,5 +165,45 @@ scissors.addEventListener('click', () => {
         resultText.innerHTML = '<h1>YOU WIN</h1>'
         scoreNr.innerHTML = score + 1
     }
+
+})
+
+const handleReset = () => {
+
+    if (houseChoice == 'paper') {
+        const houseShapePaper = document.querySelector('.houseShapePaper')
+        houseShapePaper.classList.replace('houseShapePaper', 'housePick')
+    }
+    else if (houseChoice == 'scissors') {
+        const houseShapeScissors = document.querySelector('.houseShapeScissors')
+        houseShapeScissors.classList.replace('houseShapeScissors', 'housePick')
+    }
+    else {
+        const houseShapeRock = document.querySelector('.houseShapeRock')
+        houseShapeRock.classList.replace('houseShapeRock', 'housePick')
+    }
+
+}
+
+resultBtn.addEventListener('click', () => {
+    if (userChoice == 'paper') {
+        handleReset()
+        userPick.classList.replace('userPick', 'shapePaper')
+
+    }
+    else if (userChoice == 'scissors') {
+        handleReset()
+        userPick.classList.replace('userPick', 'shapeScissors')
+    }
+    else {
+        handleReset()
+        userPick.classList.replace('userPick', 'shapeRock')
+    }
+
+    choice.style.display = 'flex'
+    rulesButton.style.display = 'flex'
+    game.style.display = 'none'
+    result.style.display = 'none'
+    result.style.opacity = '0'
 
 })
