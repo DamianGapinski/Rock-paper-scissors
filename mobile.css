@@ -158,11 +158,13 @@ main{
 }
 
 .housePick{
+    background-color: var(--light-color);
     width: 150px;
     height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    background-color: var(--dark-text);
-    opacity: .5;
 }
 
 .gameText{
@@ -184,8 +186,7 @@ main{
     align-items: center;
     justify-content: center;
 }
-
-.shapePaper,.houseShapePaper{
+.userPick{
     background-color: var(--light-color);
     width: 150px;
     height: 150px;
@@ -193,27 +194,7 @@ main{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 15px solid royalblue;
-}
-.shapeScissors,.houseShapeScissors{
-    background-color: var(--light-color);
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 15px solid yellow;
-}
-.shapeRock,.houseShapeRock{
-    background-color: var(--light-color);
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: 15px solid red;
+    
 }
 
 .result{
