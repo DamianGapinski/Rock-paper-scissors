@@ -1,0 +1,252 @@
+    @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+:root {
+    --bg-grad1: #1f3756;
+    --bg-grad2: #141539;
+    --light-color: #ffffff; 
+    --dark-text: hsl(229, 25%, 31%);
+    --out-line: hsl(217, 16%, 45%);
+    --score-text:hsl(229, 64%, 46%);
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   background: radial-gradient(at top, var(--bg-grad1), var(--bg-grad2)); 
+    font-family: "Barlow Semi Condensed", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.rules{
+    position: absolute;
+    background-color: var(--light-color);
+    width: 400px;
+    border-radius: 15px;
+    height: 400px;
+    display:none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.rules h1{
+    color: var(--dark-text);
+}
+
+.rulesClose button{
+    border: none;
+    background: none;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.topBox{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    width: 40%;
+    height: 130px;
+    border: 5px solid var(--out-line);
+    border-radius: 10px;
+}
+
+.logo,.scores{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo img{
+    height: 120px;
+    height: 70px;
+}
+
+.scores{
+    width: 125px;
+    height: 100px;
+    background-color: var(--light-color);
+    border:1px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.scoreText{
+    color: var(--score-text);
+    font-size: .75rem;
+}
+.scoreNr{
+    color: var(--dark-text);
+    text-align: center;
+    font-size: 3rem;
+}
+
+.choice{
+    background-image: url('./images/bg-triangle.svg');
+    background-size: cover;
+    width: 220px;
+    height: 200px;
+    position: relative;
+}
+
+.paper,.scissors,.rock{
+    background-color: var(--light-color);
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+    
+    
+}
+.paper{
+    top: 10px;
+    left: 10px;
+    transform: translate(-50%,-50%);
+    border: 15px solid royalblue;
+}
+
+.rock{
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,50%);
+    border: 15px solid red;
+}
+.scissors{
+    top: 10px;
+    right: 10px;
+    transform: translate(50%,-50%);
+    border: 15px solid yellow;
+}
+
+.paperIcon{
+    width: 50px;
+    height: 50px;
+}
+
+.game{
+    width: 80%;
+    height: 400px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.user,.house{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.housePick{
+    background-color: transparent;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+}
+
+.userPick{
+    background-color: var(--light-color);
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+}
+
+.gameText{
+    color: var(--light-color);
+    width: 100%;
+    text-align: center;
+    font-size: .75rem;
+}
+
+.rulesBox{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.rulesButton{
+    width: 150px;
+    height: 50px;
+    border: 3px solid var(--out-line);
+    color: var(--light-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+}
+
+
+.result{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 150px;
+    opacity: 0;
+    margin-bottom: 50px;
+}
+
+.resultText{
+    color: var(--light-color);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100px;
+    
+}
+
+.resultBtn{
+    width: 30%;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+    color: var(--dark-text);
+    text-align: center;
+    border-radius: 10px;
+}
+

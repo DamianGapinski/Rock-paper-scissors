@@ -174,7 +174,13 @@ main{
     font-size: .75rem;
 }
 
-
+.rulesBox{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .rulesButton{
     width: 150px;
@@ -185,6 +191,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 0;
 }
 .userPick{
     background-color: var(--light-color);
