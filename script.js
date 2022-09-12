@@ -10,7 +10,7 @@ const choice = document.querySelector('.choice')
 const game = document.querySelector('.game')
 const result = document.querySelector('.result')
 
-const resultText = document.querySelector('.resultText')
+let resultText = document.querySelector('.resultText')
 const resultBtn = document.querySelector('.result')
 const userPick = document.querySelector('.userPick')
 
@@ -36,7 +36,6 @@ let choiceNr = null;
     result.style.display = 'flex'
     game.style.display = 'flex'
     choice.style.display = 'none'
-    rulesButton.style.display = 'none'
     userChoice = 'rock'
     shapeStyle = 'border: 15px solid red;'
     selectshape(userChoice,shapeStyle)
@@ -46,7 +45,6 @@ let choiceNr = null;
     result.style.display = 'flex'
     game.style.display = 'flex'
     choice.style.display = 'none'
-    rulesButton.style.display = 'none'
     userChoice = 'paper'
     shapeStyle = 'border: 15px solid royalblue;'
     selectshape(userChoice,shapeStyle)
@@ -56,7 +54,6 @@ let choiceNr = null;
     result.style.display = 'flex'
     game.style.display = 'flex'
     choice.style.display = 'none'
-    rulesButton.style.display = 'none'
     userChoice = 'scissors'
     shapeStyle = 'border: 15px solid yellow;'
     selectshape(userChoice,shapeStyle)
@@ -66,10 +63,15 @@ let choiceNr = null;
   const selectshape = (userChoice,shapeStyle) =>{
     userPick.innerHTML = `<img class="${userChoice}Icon" src="./images/icon-${userChoice}.svg">`
     userPick.style = shapeStyle;
-    aiPick(userChoice)
+    setTimeout(() =>{
+      housePick.style.backgroundColor = 'var(--light-color)'
+      aiPick(userChoice)    
+    },1000)
+    
   }
 
   const aiPick = (userChoice) =>{
+    
     const possibilities = ['paper','scissors','rock']
     let aiNr = Math.floor(Math.random() * 3)
     housePick.innerHTML = `<img class="${possibilities[aiNr]}Icon" src="./images/icon-${possibilities[aiNr]}.svg">`
@@ -77,17 +79,16 @@ let choiceNr = null;
     if(aiNr == 0) housePick.style.border = '15px solid royalblue'
     else if(aiNr == 1) housePick.style.border = '15px solid yellow'
     else housePick.style.border = '15px solid red'
-
     gameResult(userChoice,aiNr)
   }
 
   const gameResult = (userChoice,aiNr) =>{
-
     result.style.opacity = '1'
 
     if(userChoice == 'paper' && aiNr == 0)
     {
         resultText.innerHTML = '<h1>DROW</h1>'
+        
         
     }
     else if(userChoice == 'paper' && aiNr == 1){
@@ -125,12 +126,17 @@ let choiceNr = null;
 
     
 resultBtn.addEventListener('click', () =>{
-    
+    result.style.opacity = '0'
     result.style.display = 'none'
     game.style.display = 'none'
     choice.style.display = 'flex'
     rulesButton.style.display = 'flex'
+    housePick.style.border = '15px solid transparent'
+    housePick.style.backgroundColor = 'transparent'
+    housePick.innerHTML = ''
     userChoice = ''
+    aiNr = ''
+    resultText.innerHTML = ''
 })
   
     
