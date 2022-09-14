@@ -35,15 +35,16 @@ let choiceNr = null;
 
 let SCORE = 0;
 let shapeStyle = '';
+const royalblueBorder = 'border: 20px solid royalblue;'
+const redBorder = 'border: 20px solid red;'
+const yellowBorder = 'border: 20px solid yellow;'
 
 rock.addEventListener('click', () => {
   result.style.display = 'flex'
   game.style.display = 'flex'
   choice.style.display = 'none'
   userChoice = 'rock'
-  shapeStyle = 'border: 15px solid red;'
-  rockIcon.style = 'width: 100px;'
-  rockIcon.style = 'height: 100px;'
+  shapeStyle = redBorder
   selectshape(userChoice, shapeStyle)
 })
 
@@ -52,9 +53,7 @@ paper.addEventListener('click', () => {
   game.style.display = 'flex'
   choice.style.display = 'none'
   userChoice = 'paper'
-  shapeStyle = 'border: 15px solid royalblue;'
-  paperIcon.style = 'width: 100px;'
-  paperIcon.style = 'height: 100px;'
+  shapeStyle = royalblueBorder
   selectshape(userChoice, shapeStyle)
 })
 
@@ -63,9 +62,7 @@ scissors.addEventListener('click', () => {
   game.style.display = 'flex'
   choice.style.display = 'none'
   userChoice = 'scissors'
-  shapeStyle = 'border: 15px solid yellow;'
-  scissorsIcon.style = 'width: 100px;'
-  scissorsIcon.style = 'height: 100px;'
+  shapeStyle = yellowBorder
   selectshape(userChoice, shapeStyle)
 
 })
@@ -73,6 +70,8 @@ scissors.addEventListener('click', () => {
 const selectshape = (userChoice, shapeStyle) => {
   userPick.innerHTML = `<img class="${userChoice}Icon" src="./images/icon-${userChoice}.svg">`
   userPick.style = shapeStyle;
+
+
   setTimeout(() => {
     housePick.style.backgroundColor = 'var(--light-color)'
     aiPick(userChoice)
@@ -87,19 +86,13 @@ const aiPick = (userChoice) => {
   housePick.innerHTML = `<img class="${possibilities[aiNr]}Icon" src="./images/icon-${possibilities[aiNr]}.svg">`
 
   if (aiNr == 0) {
-    housePick.style.border = '15px solid royalblue'
-    paperIcon.style = 'width: 100px;'
-    paperIcon.style = 'height: 100px;'
+    housePick.style.border = '20px solid royalblue'
   }
   else if (aiNr == 1) {
-    housePick.style.border = '15px solid yellow'
-    scissorsIcon.style = 'width: 100px;'
-    scissorsIcon.style = 'height: 100px;'
+    housePick.style.border = '20px solid yellow'
   }
   else {
-    housePick.style.border = '15px solid red'
-    rockIcon.style = 'width: 100px;'
-    rockIcon.style = 'height: 100px;'
+    housePick.style.border = '20px solid red'
   }
   gameResult(userChoice, aiNr)
 }
