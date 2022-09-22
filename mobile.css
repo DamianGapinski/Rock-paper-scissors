@@ -71,10 +71,10 @@ main{
     align-items: center;
 }
 
-.logo img{
+/* .logo img{
     width: 120px;
     height: 70px;
-}
+} */
 
 .scores{
     width: 100px;
