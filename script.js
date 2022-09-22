@@ -65,7 +65,7 @@ scissors.addEventListener('click', () => {
 })
 
 const selectshape = (userChoice) => {
-  userPick.innerHTML = `<img class="${userChoice}Icon" src="./images/icon-${userChoice}.svg">`
+  userPick.innerHTML = `<img class="${userChoice}Icon" src="./images/icon-${userChoice}.svg" alt='icon'>`
 
 
   setTimeout(() => {
@@ -79,7 +79,7 @@ const aiPick = (userChoice) => {
 
   const possibilities = ['paper', 'scissors', 'rock']
   let aiNr = Math.floor(Math.random() * 3)
-  housePick.innerHTML = `<img class="${possibilities[aiNr]}Icon" src="./images/icon-${possibilities[aiNr]}.svg">`
+  housePick.innerHTML = `<img class="${possibilities[aiNr]}Icon" src="./images/icon-${possibilities[aiNr]}.svg alt='icon' ">`
   housePick.style.opacity = '1'
 
   gameResult(userChoice, aiNr)
