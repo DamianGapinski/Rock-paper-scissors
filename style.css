@@ -128,6 +128,7 @@ main{
     z-index: 10;
     border: 15px solid transparent;
     cursor: pointer;
+    
 }
 .paper{
     top: 0px;
@@ -145,9 +146,10 @@ main{
     border-radius: 50%;
     z-index: -1;
     background-color: var(--light-color);
+    box-shadow: inset 0 6px rgb(0,0,0,.15);
     
 }
-.scissors::before{
+.scissors::before,.paper::before,.rock::before{
     content:'';
     position: absolute;
     left: -15%;
@@ -157,6 +159,7 @@ main{
     border-radius: 50%;
     z-index: -1;
     background: linear-gradient(to bottom,var(--scissors-color-1), var(--scissors-color-2));
+    box-shadow: inset 0 -6px rgb(0,0,0,.15);
 }
 
 .paper::before{
@@ -196,18 +199,12 @@ main{
     transform: translate(50%,-50%);
 }
 
-.paperIcon{
-    width: 50px;
-    height: 50px;
+.rockIcon,.paperIcon,.scissorsIcon{
+    width: 80px;
+    height: 80px;
+    
 }
-.scissorsIcon{
-    width: 50px;
-    height: 50px;
-}
-.rockIcon{
-    width: 50px;
-    height: 50px;
-}
+
 
 .game{
     width: 80%;
@@ -216,32 +213,6 @@ main{
     justify-content: space-between;
     align-items: center;
 
-}
-
-.housePick .paperIcon{
-    width: 80px;
-    height: 80px;
-}
-.housePick .scissorsIcon{
-    width: 80px;
-    height: 80px;
-}
-.housePick .rockIcon{
-    width: 80px;
-    height: 80px;
-}
-
-.userPick .paperIcon{
-    width: 80px;
-    height: 80px;
-}
-.userPick .scissorsIcon{
-    width: 80px;
-    height: 80px;
-}
-.userPick .rockIcon{
-    width: 80px;
-    height: 80px;
 }
 
 .user,.house{
@@ -254,17 +225,6 @@ main{
 }
 
 .housePick{
-    background-color: transparent;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    
-}
-
-.userPick{
     background-color: var(--light-color);
     width: 200px;
     height: 200px;
@@ -272,7 +232,44 @@ main{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    position: relative;
+    opacity: 0;
+}
+
+.housePick::before,.userPick::before{
+    content:'';
+    position: absolute;
+    left: -15%;
+    top:-15%;
+    width: 130%;
+    height: 130%;
+    border-radius: 50%;
+    z-index: -1;
+    background: linear-gradient(to bottom,var(--scissors-color-1), var(--scissors-color-2));
+    box-shadow: inset 0 -6px rgb(0,0,0,.15);
     
+}
+.housePick::after,.userPick::after{
+    content:'';
+    position: absolute;
+    left: 0%;
+    top:0%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--light-color);
+    box-shadow: inset 0 6px rgb(0,0,0,.15);
+}
+
+.userPick{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+   position: relative;
 }
 
 .gameText{

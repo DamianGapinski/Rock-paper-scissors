@@ -44,8 +44,7 @@ rock.addEventListener('click', () => {
   game.style.display = 'flex'
   choice.style.display = 'none'
   userChoice = 'rock'
-  shapeStyle = redBorder
-  selectshape(userChoice, shapeStyle)
+  selectshape(userChoice)
 })
 
 paper.addEventListener('click', () => {
@@ -53,8 +52,7 @@ paper.addEventListener('click', () => {
   game.style.display = 'flex'
   choice.style.display = 'none'
   userChoice = 'paper'
-  shapeStyle = royalblueBorder
-  selectshape(userChoice, shapeStyle)
+  selectshape(userChoice)
 })
 
 scissors.addEventListener('click', () => {
@@ -62,18 +60,16 @@ scissors.addEventListener('click', () => {
   game.style.display = 'flex'
   choice.style.display = 'none'
   userChoice = 'scissors'
-  shapeStyle = yellowBorder
-  selectshape(userChoice, shapeStyle)
+  selectshape(userChoice)
 
 })
 
-const selectshape = (userChoice, shapeStyle) => {
+const selectshape = (userChoice) => {
   userPick.innerHTML = `<img class="${userChoice}Icon" src="./images/icon-${userChoice}.svg">`
-  userPick.style = shapeStyle;
 
 
   setTimeout(() => {
-    housePick.style.backgroundColor = 'var(--light-color)'
+
     aiPick(userChoice)
   }, 1000)
 
@@ -84,16 +80,8 @@ const aiPick = (userChoice) => {
   const possibilities = ['paper', 'scissors', 'rock']
   let aiNr = Math.floor(Math.random() * 3)
   housePick.innerHTML = `<img class="${possibilities[aiNr]}Icon" src="./images/icon-${possibilities[aiNr]}.svg">`
+  housePick.style.opacity = '1'
 
-  if (aiNr == 0) {
-    housePick.style.border = '20px solid royalblue'
-  }
-  else if (aiNr == 1) {
-    housePick.style.border = '20px solid yellow'
-  }
-  else {
-    housePick.style.border = '20px solid red'
-  }
   gameResult(userChoice, aiNr)
 }
 
@@ -102,11 +90,10 @@ const gameResult = (userChoice, aiNr) => {
 
   if (userChoice == 'paper' && aiNr == 0) {
     resultText.innerHTML = '<h1>DROW</h1>'
-
-
   }
   else if (userChoice == 'paper' && aiNr == 1) {
     resultText.innerHTML = '<h1>YOU LOSE</h1>'
+    housePick.style.boxShadow = ''
     score = score - 1;
   }
   else if (userChoice == 'paper' && aiNr == 2) {
@@ -141,21 +128,14 @@ const gameResult = (userChoice, aiNr) => {
 
 resultBtn.addEventListener('click', () => {
   result.style.opacity = '0'
+  housePick.style.opacity = '0'
   result.style.display = 'none'
   game.style.display = 'none'
   choice.style.display = 'flex'
   rulesButton.style.display = 'flex'
-  housePick.style.border = '15px solid transparent'
   housePick.style.backgroundColor = 'transparent'
   housePick.innerHTML = ''
   userChoice = ''
   aiNr = ''
   resultText.innerHTML = ''
 })
-
-
-
-
-
-
-
